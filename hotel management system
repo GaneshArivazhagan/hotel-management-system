@@ -1,0 +1,40 @@
+import java.awt.*;
+import java.awt.event.*;
+
+public class SimpleAWTProgram {
+    public static void main(String[] args) {
+        // Create a Frame
+        Frame frame = new Frame("AWT Example");
+
+        // Create a Label
+        Label label = new Label("Press the button!");
+        label.setBounds(50, 50, 200, 30);
+
+        // Create a Button
+        Button button = new Button("Click Me");
+        button.setBounds(50, 100, 80, 30);
+
+        // Add an Action Listener to the Button
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                label.setText("Button clicked!");
+            }
+        });
+
+        // Add components to the Frame
+        frame.add(label);
+        frame.add(button);
+
+        // Set Frame properties
+        frame.setSize(300, 200);
+        frame.setLayout(null); // Using no layout manager
+        frame.setVisible(true);
+
+        // Add a Window Listener to close the Frame
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                frame.dispose();
+            }
+        });
+    }
+}
